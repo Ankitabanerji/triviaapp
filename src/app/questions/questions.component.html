@@ -1,0 +1,84 @@
+<!-- div for question one -->
+<div class="container mt-5 quesOne" *ngIf="ques==1">
+  <div class="row justify-content-center">
+    <div class="col-9 question">
+      <form class="my-5" (ngSubmit)="nextpage(1)">
+        <div class="row justify-content-center">
+          <div class="col-9 p-3 text-center ">
+            <h2>What is your name?</h2>
+          </div>
+          <div class="col-8 p-4">
+            <input type="text" name="name" [(ngModel)]="name" class="form-control" placeholder="Enter your name">
+          </div>
+        </div>
+        <span class="d-flex justify-content-end mb-3">
+          <button type="submit" class="mr-4">Next</button>
+        </span>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- div for question two -->
+<div class="container mt-5  quesTwo" *ngIf="ques==2">
+  <div class="row justify-content-center">
+    <div class="col-9 question">
+      <form class="my-5" (ngSubmit)="nextpage(2)">
+        <div class="row justify-content-center">
+          <div class="col-9 p-3 text-center ">
+            <h2>Who is the best cricketer in the world?</h2>
+          </div>
+          <div class="col-8 p-4" *ngFor="let c of cricketers.list">
+            <label class="cricket"><input type="radio" name="optradio" [value]="c" (change)="selectedCricketer($event)">
+              {{c}}</label>
+          </div>
+        </div>
+        <span class="d-flex justify-content-end mb-3">
+          <button type="submit" class="mr-4">Next</button>
+        </span>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- div for question three -->
+<div class="container mt-5 quesThree" *ngIf="ques==3">
+  <div class="row justify-content-center">
+    <div class="col-9 question">
+      <form class="my-5" (ngSubmit)="nextpage(3)">
+        <div class="row justify-content-center">
+          <div class="col-9 p-3 text-center ">
+            <h2>What are the colors in the Indian national flag?</h2>
+          </div>
+          <div class="col-8 p-4" *ngFor="let c of colors.list">
+            <input class="form-check-input" type="checkbox" [value]="c" id="defaultCheck1"
+              (change)="selectedColors($event)">
+            <label class="form-check-label colour" for="defaultCheck1">
+              {{c}}
+            </label>
+          </div>
+        </div>
+        <span class="d-flex justify-content-end mb-3">
+          <button type="submit" class="mr-4">Next</button>
+        </span>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- div for question summary -->
+<div class="container mt-5 summary" *ngIf="ques==4">
+  <div class="row justify-content-center">
+    <div class="col-9 question p-4">
+      <h3 class="text-center">SUMMARY</h3>
+      <p>Hello “{{name}}” ,</p>
+      <p><b>Here are the answers selected:</b></p>
+      <p><b>Who is the best cricketer in the world? </b><br>{{cricketers.selected}}</p>
+      <p><b>What are the colors in the national flag? </b><br>{{colors.selected}}</p>
+      <span class="d-flex justify-content-end mb-3">
+        <button type="submit" class="mr-4" (click)="finish()">Finish</button>
+        <button type="submit" class="mr-4" (click)="history()">History</button>
+      </span>
+    </div>
+  </div>
+</div>

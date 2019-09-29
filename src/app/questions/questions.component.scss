@@ -1,0 +1,29 @@
+
+.question{
+    background: #ff8a65;
+    border-radius: 15px;
+    box-shadow:20px 20px 50px #5d4037;
+    button{
+        border-radius: 15px;
+        border:none;
+        background: white;
+        &:hover{
+            box-shadow:8px 8px 20px #5d4037;
+        }
+    }
+}
+.quesTwo{
+    .cricket{
+        font-size: 1.3rem;
+    }
+}
+.quesThree{
+    .colour{
+        font-size: 1.3rem;
+    }
+}
+.summary{
+    .question{
+        font-size: 1.3rem;
+    }
+}

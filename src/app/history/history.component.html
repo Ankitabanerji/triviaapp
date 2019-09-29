@@ -1,0 +1,34 @@
+<div class="container history-wrapper">
+
+  <!-- button to play game again -->
+  <div class="row" (click)="restart()">
+    <div class="col">
+      <button>Start New Game</button>
+    </div>
+  </div>
+
+<!-- history div -->
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="card-columns historyCards">
+        <div class="card cardstyle" *ngFor="let g of gamesArray;let i=index">
+          <div class="card-body">
+            <h5 class="card-title text-center">
+              <h3>Game {{i+1}}</h3>
+            </h5>
+            <p class="card-text"> <b>Date: </b> {{g.date | date:'medium'}}</p>
+            <p class="card-text"> <b>Name: </b> {{g.name}}</p>
+            <p class="card-text"> <b>Who is the best cricketer in the world? </b><br>{{g.cricketer}}</p>
+            <p class="card-text"> <b>What are the colors in the national flag? </b><br>
+              <span *ngFor="let c of g.colors;let last=last">
+                {{c}}{{last?'':','}}
+              </span>
+            </p>
+            <p class="card-text text-right"><small class="sub-text">Game played on {{g.date |date:'mediumDate'}} at
+                {{g.date |date:'shortTime'}}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
